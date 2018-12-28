@@ -42,29 +42,29 @@ namespace SM64CakeEater
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.pnlFilePickers = new System.Windows.Forms.Panel();
-            this.tbImagePath = new System.Windows.Forms.TextBox();
-            this.lblImage = new System.Windows.Forms.Label();
-            this.btnImageBrowse = new System.Windows.Forms.Button();
-            this.tbRomPath = new System.Windows.Forms.TextBox();
-            this.lblRomFile = new System.Windows.Forms.Label();
             this.btnRomBrowse = new System.Windows.Forms.Button();
+            this.btnImageBrowse = new System.Windows.Forms.Button();
+            this.lblRomFile = new System.Windows.Forms.Label();
+            this.lblImage = new System.Windows.Forms.Label();
+            this.tbRomPath = new System.Windows.Forms.TextBox();
+            this.tbImagePath = new System.Windows.Forms.TextBox();
             this.pnlOther = new System.Windows.Forms.Panel();
-            this.lblOther = new System.Windows.Forms.Label();
             this.btnRomInfo = new System.Windows.Forms.Button();
+            this.lblOther = new System.Windows.Forms.Label();
             this.pnlDebug = new System.Windows.Forms.Panel();
             this.lblDebug = new System.Windows.Forms.Label();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.pbPreview = new System.Windows.Forms.PictureBox();
             this.pnlExtendedOptions = new System.Windows.Forms.Panel();
-            this.cbxRomType = new System.Windows.Forms.ComboBox();
-            this.lblRomType = new System.Windows.Forms.Label();
-            this.nudOffset = new System.Windows.Forms.NumericUpDown();
             this.lblOffset = new System.Windows.Forms.Label();
+            this.nudOffset = new System.Windows.Forms.NumericUpDown();
+            this.lblRomType = new System.Windows.Forms.Label();
+            this.cbxRomType = new System.Windows.Forms.ComboBox();
             this.btnPreview = new System.Windows.Forms.Button();
             this.pnlPatches = new System.Windows.Forms.Panel();
+            this.chkEndCakeStart = new System.Windows.Forms.CheckBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.lblPatches = new System.Windows.Forms.Label();
-            this.chkEndCakeStart = new System.Windows.Forms.CheckBox();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.pnlFilePickers.SuspendLayout();
@@ -81,6 +81,7 @@ namespace SM64CakeEater
             // 
             this.rtbLog.Location = new System.Drawing.Point(6, 25);
             this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
             this.rtbLog.Size = new System.Drawing.Size(663, 94);
             this.rtbLog.TabIndex = 0;
             this.rtbLog.Text = "";
@@ -99,21 +100,15 @@ namespace SM64CakeEater
             this.pnlFilePickers.Size = new System.Drawing.Size(135, 160);
             this.pnlFilePickers.TabIndex = 1;
             // 
-            // tbImagePath
+            // btnRomBrowse
             // 
-            this.tbImagePath.Location = new System.Drawing.Point(3, 26);
-            this.tbImagePath.Name = "tbImagePath";
-            this.tbImagePath.ReadOnly = true;
-            this.tbImagePath.Size = new System.Drawing.Size(127, 20);
-            this.tbImagePath.TabIndex = 2;
-            // 
-            // lblImage
-            // 
-            this.lblImage.Location = new System.Drawing.Point(3, 6);
-            this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(127, 17);
-            this.lblImage.TabIndex = 2;
-            this.lblImage.Text = "Image";
+            this.btnRomBrowse.Location = new System.Drawing.Point(3, 127);
+            this.btnRomBrowse.Name = "btnRomBrowse";
+            this.btnRomBrowse.Size = new System.Drawing.Size(127, 23);
+            this.btnRomBrowse.TabIndex = 2;
+            this.btnRomBrowse.Text = "Browse";
+            this.btnRomBrowse.UseVisualStyleBackColor = true;
+            this.btnRomBrowse.Click += new System.EventHandler(this.btnRomBrowse_Click);
             // 
             // btnImageBrowse
             // 
@@ -125,14 +120,6 @@ namespace SM64CakeEater
             this.btnImageBrowse.UseVisualStyleBackColor = true;
             this.btnImageBrowse.Click += new System.EventHandler(this.btnImageBrowse_Click);
             // 
-            // tbRomPath
-            // 
-            this.tbRomPath.Location = new System.Drawing.Point(3, 101);
-            this.tbRomPath.Name = "tbRomPath";
-            this.tbRomPath.ReadOnly = true;
-            this.tbRomPath.Size = new System.Drawing.Size(127, 20);
-            this.tbRomPath.TabIndex = 2;
-            // 
             // lblRomFile
             // 
             this.lblRomFile.Location = new System.Drawing.Point(3, 81);
@@ -141,15 +128,29 @@ namespace SM64CakeEater
             this.lblRomFile.TabIndex = 2;
             this.lblRomFile.Text = "ROM File";
             // 
-            // btnRomBrowse
+            // lblImage
             // 
-            this.btnRomBrowse.Location = new System.Drawing.Point(3, 127);
-            this.btnRomBrowse.Name = "btnRomBrowse";
-            this.btnRomBrowse.Size = new System.Drawing.Size(127, 23);
-            this.btnRomBrowse.TabIndex = 2;
-            this.btnRomBrowse.Text = "Browse";
-            this.btnRomBrowse.UseVisualStyleBackColor = true;
-            this.btnRomBrowse.Click += new System.EventHandler(this.btnRomBrowse_Click);
+            this.lblImage.Location = new System.Drawing.Point(3, 6);
+            this.lblImage.Name = "lblImage";
+            this.lblImage.Size = new System.Drawing.Size(127, 17);
+            this.lblImage.TabIndex = 2;
+            this.lblImage.Text = "Image";
+            // 
+            // tbRomPath
+            // 
+            this.tbRomPath.Location = new System.Drawing.Point(3, 101);
+            this.tbRomPath.Name = "tbRomPath";
+            this.tbRomPath.ReadOnly = true;
+            this.tbRomPath.Size = new System.Drawing.Size(127, 20);
+            this.tbRomPath.TabIndex = 2;
+            // 
+            // tbImagePath
+            // 
+            this.tbImagePath.Location = new System.Drawing.Point(3, 26);
+            this.tbImagePath.Name = "tbImagePath";
+            this.tbImagePath.ReadOnly = true;
+            this.tbImagePath.Size = new System.Drawing.Size(127, 20);
+            this.tbImagePath.TabIndex = 2;
             // 
             // pnlOther
             // 
@@ -161,14 +162,6 @@ namespace SM64CakeEater
             this.pnlOther.Size = new System.Drawing.Size(135, 59);
             this.pnlOther.TabIndex = 2;
             // 
-            // lblOther
-            // 
-            this.lblOther.Location = new System.Drawing.Point(3, 4);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(127, 17);
-            this.lblOther.TabIndex = 3;
-            this.lblOther.Text = "Other";
-            // 
             // btnRomInfo
             // 
             this.btnRomInfo.Location = new System.Drawing.Point(3, 24);
@@ -178,6 +171,14 @@ namespace SM64CakeEater
             this.btnRomInfo.Text = "ROM Info";
             this.btnRomInfo.UseVisualStyleBackColor = true;
             this.btnRomInfo.Click += new System.EventHandler(this.btnRomInfo_Click);
+            // 
+            // lblOther
+            // 
+            this.lblOther.Location = new System.Drawing.Point(3, 4);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(127, 17);
+            this.lblOther.TabIndex = 3;
+            this.lblOther.Text = "Other";
             // 
             // pnlDebug
             // 
@@ -227,28 +228,15 @@ namespace SM64CakeEater
             this.pnlExtendedOptions.Size = new System.Drawing.Size(674, 30);
             this.pnlExtendedOptions.TabIndex = 5;
             // 
-            // cbxRomType
+            // lblOffset
             // 
-            this.cbxRomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRomType.FormattingEnabled = true;
-            this.cbxRomType.Items.AddRange(new object[] {
-            "SM64 Editor by Skelux",
-            "ROM Manager by Pilzinsel64",
-            "Custom Offset..."});
-            this.cbxRomType.Location = new System.Drawing.Point(242, 3);
-            this.cbxRomType.Name = "cbxRomType";
-            this.cbxRomType.Size = new System.Drawing.Size(153, 21);
-            this.cbxRomType.TabIndex = 0;
-            this.cbxRomType.SelectedIndexChanged += new System.EventHandler(this.cbxRomType_SelectedIndexChanged);
-            // 
-            // lblRomType
-            // 
-            this.lblRomType.AutoSize = true;
-            this.lblRomType.Location = new System.Drawing.Point(4, 6);
-            this.lblRomType.Name = "lblRomType";
-            this.lblRomType.Size = new System.Drawing.Size(231, 13);
-            this.lblRomType.TabIndex = 1;
-            this.lblRomType.Text = "Select the ROM Editing program you are using: ";
+            this.lblOffset.AutoSize = true;
+            this.lblOffset.Location = new System.Drawing.Point(401, 6);
+            this.lblOffset.Name = "lblOffset";
+            this.lblOffset.Size = new System.Drawing.Size(79, 13);
+            this.lblOffset.TabIndex = 3;
+            this.lblOffset.Text = "Custom Offset: ";
+            this.lblOffset.Visible = false;
             // 
             // nudOffset
             // 
@@ -264,15 +252,28 @@ namespace SM64CakeEater
             this.nudOffset.TabIndex = 2;
             this.nudOffset.Visible = false;
             // 
-            // lblOffset
+            // lblRomType
             // 
-            this.lblOffset.AutoSize = true;
-            this.lblOffset.Location = new System.Drawing.Point(401, 6);
-            this.lblOffset.Name = "lblOffset";
-            this.lblOffset.Size = new System.Drawing.Size(79, 13);
-            this.lblOffset.TabIndex = 3;
-            this.lblOffset.Text = "Custom Offset: ";
-            this.lblOffset.Visible = false;
+            this.lblRomType.AutoSize = true;
+            this.lblRomType.Location = new System.Drawing.Point(4, 6);
+            this.lblRomType.Name = "lblRomType";
+            this.lblRomType.Size = new System.Drawing.Size(231, 13);
+            this.lblRomType.TabIndex = 1;
+            this.lblRomType.Text = "Select the ROM Editing program you are using: ";
+            // 
+            // cbxRomType
+            // 
+            this.cbxRomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRomType.FormattingEnabled = true;
+            this.cbxRomType.Items.AddRange(new object[] {
+            "SM64 Editor by Skelux",
+            "ROM Manager by Pilzinsel64",
+            "Custom Offset..."});
+            this.cbxRomType.Location = new System.Drawing.Point(242, 3);
+            this.cbxRomType.Name = "cbxRomType";
+            this.cbxRomType.Size = new System.Drawing.Size(153, 21);
+            this.cbxRomType.TabIndex = 0;
+            this.cbxRomType.SelectedIndexChanged += new System.EventHandler(this.cbxRomType_SelectedIndexChanged);
             // 
             // btnPreview
             // 
@@ -295,6 +296,16 @@ namespace SM64CakeEater
             this.pnlPatches.Size = new System.Drawing.Size(156, 76);
             this.pnlPatches.TabIndex = 1;
             // 
+            // chkEndCakeStart
+            // 
+            this.chkEndCakeStart.AutoSize = true;
+            this.chkEndCakeStart.Location = new System.Drawing.Point(6, 26);
+            this.chkEndCakeStart.Name = "chkEndCakeStart";
+            this.chkEndCakeStart.Size = new System.Drawing.Size(146, 17);
+            this.chkEndCakeStart.TabIndex = 3;
+            this.chkEndCakeStart.Text = "End screen on ROM start";
+            this.chkEndCakeStart.UseVisualStyleBackColor = true;
+            // 
             // btnApply
             // 
             this.btnApply.Location = new System.Drawing.Point(3, 48);
@@ -312,16 +323,6 @@ namespace SM64CakeEater
             this.lblPatches.Size = new System.Drawing.Size(148, 20);
             this.lblPatches.TabIndex = 2;
             this.lblPatches.Text = "Patches";
-            // 
-            // chkEndCakeStart
-            // 
-            this.chkEndCakeStart.AutoSize = true;
-            this.chkEndCakeStart.Location = new System.Drawing.Point(6, 26);
-            this.chkEndCakeStart.Name = "chkEndCakeStart";
-            this.chkEndCakeStart.Size = new System.Drawing.Size(146, 17);
-            this.chkEndCakeStart.TabIndex = 3;
-            this.chkEndCakeStart.Text = "End screen on ROM start";
-            this.chkEndCakeStart.UseVisualStyleBackColor = true;
             // 
             // btnImport
             // 
@@ -357,9 +358,10 @@ namespace SM64CakeEater
             this.Controls.Add(this.pnlOther);
             this.Controls.Add(this.pnlPatches);
             this.Controls.Add(this.pnlFilePickers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Super Mario 64 End Cake Eater";
+            this.Text = "Super Mario 64 Cake Eater";
             this.pnlFilePickers.ResumeLayout(false);
             this.pnlFilePickers.PerformLayout();
             this.pnlOther.ResumeLayout(false);
