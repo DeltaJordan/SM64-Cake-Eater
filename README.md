@@ -1,6 +1,7 @@
-# SM64-Cake-Eater
+# SM64 Cake Eater
 
-An open source program to replace the end cake screen of Super Mario 64
+## An open source program to replace the end cake screen of Super Mario 64. 
+Feel free to link this on any ROM hacking forums but please link to this repo, do not reupload elsewhere. Thanks.
 
 ![Preview](https://imgur.com/DTBnjwL.png)
 
